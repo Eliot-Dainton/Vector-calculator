@@ -1,0 +1,88 @@
+import math
+
+
+def scalar_mulitply(va_1, va_2, va_3, multi):
+    return str(multi * va_1) + "," + str(multi * va_2) + "," + str(multi * va_3)
+
+
+def calc(var_1, var_2, var_3, var_4, var_5, var_6):
+    # self.var_1 = var_1
+    # self.var_2 = var_2
+    # self.var_3 = var_3
+    # self.var_4 = var_4
+    # self.var_5 = var_5
+    # self.var_6 = var_6
+
+    print ("Vector addition:")
+    print "    " + "<" + str(var_4 - var_1) + "," + str(var_5 - var_2) + "," + str(var_6 - var_3) + ">"
+
+    print " "
+
+    print ("Length of a:")
+    length_a = math.sqrt((var_1 ** 2) + (var_2 ** 2) + (var_3 ** 2))
+    length_a_nosqrt = (var_1 ** 2) + (var_2 ** 2) + (var_3 ** 2)
+    print "    " + "sqrt(" + str(length_a_nosqrt) + ")"
+    print "    " + str(length_a)
+
+    print " "
+
+    print ("Length of b:")
+    length_b = math.sqrt((var_4 ** 2) + (var_5 ** 2) + (var_6 ** 2))
+    length_b_nosqrt = (var_4 ** 2) + (var_5 ** 2) + (var_6 ** 2)
+    print "    " + "sqrt(" + str(length_b_nosqrt) + ")"
+    print "    " + str(length_b)
+
+    print " "
+
+    print ("Dot product")
+    dot_product = var_1 * var_4 + var_2 * var_5 + var_3 * var_6
+    print "    " + str(dot_product)
+
+    print " "
+
+    print ("Angle between vectors:")
+    angle = math.acos(dot_product / (length_a * length_b))
+    print "    " + str(angle / math.pi) + "pi" + " radians"
+    print "    " + str(angle * 180 / math.pi) + " degrees"
+
+    print " "
+
+    print ("Scalar projection of a onto b")
+    s_ba = dot_product / length_b
+    print "    " + str(s_ba)
+
+    print " "
+
+    print ("Vector projection of a onto b")
+    multiple = dot_product / (length_b**2)
+    proj_ba = scalar_mulitply(var_4, var_5, var_6, multiple)
+    print "    " + "<" + proj_ba + ">"
+
+    print " "
+
+    print ("Cross product a x b")
+    cross_i = var_2 * var_6 - var_3 * var_5
+    cross_j = var_1 * var_6 - var_3 * var_4
+    cross_k = var_1 * var_5 - var_2 * var_4
+    cross_ijk = str(cross_i) + "i" + "," + str(-cross_j) + "j" + "," + str(cross_k) + "k"
+    cross_vec = "<" + str(cross_i) + "," + str(-cross_j) + "," + str(cross_k) + ">"
+    print "    " + cross_ijk
+    print "    " + cross_vec
+
+    print " "
+
+    print ("Area of enclosed parallelogram")
+    area_nosqrt = cross_i**2 + cross_j**2 + cross_k**2
+    area = math.sqrt(cross_i**2 + cross_j**2 + cross_k**2)
+    print "    " + "sqrt" + str(area_nosqrt)
+    print "    " + str(area)
+
+
+def length(var_1, var_2, var_3):
+    length_nosqrt = (var_1**2 + var_2**2 + var_3**2)
+    length = math.sqrt(var_1**2 + var_2**2 + var_3**2)
+    print "    " + str(length_nosqrt)
+    print "    " + str(length)
+
+
+calc(1, 2, 3, 7, 5, 4)
